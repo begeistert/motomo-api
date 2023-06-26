@@ -13,15 +13,14 @@ class handler(BaseHTTPRequestHandler):
 from flask import Flask, jsonify
 
 app = Flask(__name__)
-root = '/api/v1'
 
 
-@app.route(f'{root}/', methods=['GET', 'POST'])
+@app.route('/api/v1', methods=['GET', 'POST'])
 def welcome():
     return "Hello World!"
 
 
-@app.route(f'{root}/menu', methods=['GET'])
+@app.route('/api/v1/menu', methods=['GET'])
 def menu():
     return jsonify({
         'Entries': {
@@ -81,7 +80,7 @@ def menu():
     })
 
 
-@app.route(f'{root}/categories', methods=['GET'])
+@app.route('/api/v1/categories', methods=['GET'])
 def categories():
     return jsonify([
         'Entries',
