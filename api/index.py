@@ -13,11 +13,17 @@ class handler(BaseHTTPRequestHandler):
 from flask import Flask
 
 app = Flask(__name__)
+app.config['APPLICATION_ROOT'] = 'api'
 
 
-@app.route('/api', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def welcome():
     return "Hello World!"
+
+
+@app.route('/v1/', methods=['GET'])
+def categories():
+    pass
 
 
 if __name__ == '__main__':
