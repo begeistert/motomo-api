@@ -1,4 +1,4 @@
-from http.server import BaseHTTPRequestHandler
+"""from http.server import BaseHTTPRequestHandler
 
 class handler(BaseHTTPRequestHandler):
 
@@ -8,3 +8,17 @@ class handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write('Hello, world!'.encode('utf-8'))
         return
+"""
+
+from microdot import Microdot
+
+app = Microdot()
+
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    return 'Hello world!'
+
+
+if __name__ == '__main__':
+    app.run()
