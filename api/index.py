@@ -33,7 +33,7 @@ data = {
             'idImage': 0,
         }
     ],
-    'Main Dish': [
+    'Main': [
         {
             'id': 11,
             'name': 'Ramen de cerdo ahumado',
