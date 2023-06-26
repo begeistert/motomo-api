@@ -2,6 +2,99 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
+data = {
+    'Entries': [
+        {
+            'id': 1,
+            'name': 'Sopa Misa',
+            'description': 'Nuestra mejor sopa',
+            'price': '',
+            'idImage': 0,
+        },
+        {
+            'id': 2,
+            'name': 'Sushi de camarón',
+            'description': 'Nuestro mejor sushi',
+            'price': '',
+            'idImage': 0,
+        },
+        {
+            'id': 3,
+            'name': 'Pulpo asado',
+            'description': 'Nuevo platillo',
+            'price': '',
+            'idImage': 0,
+        },
+        {
+            'id': 4,
+            'name': 'Yakimeshi',
+            'description': 'Con verduras',
+            'price': '',
+            'idImage': 0,
+        }
+    ],
+    'Main Dish': [
+        {
+            'id': 11,
+            'name': 'Ramen de cerdo ahumado',
+            'description': 'Sabroso y ahumado',
+            'price': '',
+            'idImage': 0,
+        },
+        {
+            'id': 12,
+            'name': 'Ramen vegano picante',
+            'description': 'Especiado y reconfortante',
+            'price': '',
+            'idImage': 0,
+        },
+        {
+            'id': 13,
+            'name': 'Ramen de pollo teriyaki',
+            'description': 'Dulce y satisfactorio',
+            'price': '',
+            'idImage': 0,
+        },
+        {
+            'id': 14,
+            'name': 'Ramen de mariscos',
+            'description': 'Delicioso y abundante',
+            'price': '',
+            'idImage': 0,
+        }
+    ],
+    'Beverages': [
+        {
+            'id': 21,
+            'name': 'Café expresso',
+            'description': 'Intenso y aromático',
+            'price': '',
+            'idImage': 0,
+        },
+        {
+            'id': 23,
+            'Name': 'Limonada refrescante',
+            'Description': 'Cítrica y revitalizante',
+            'price': '',
+            'idImage': 0,
+        },
+        {
+            'id': 24,
+            'Name': 'Agua de fresa',
+            'Description': 'Dulce y cremoso',
+            'price': '',
+            'idImage': 0,
+        },
+        {
+            'id': 25,
+            'Name': 'Té verde frío',
+            'Description': 'Refrescante y saludable',
+            'price': '',
+            'idImage': 0,
+        }
+    ]
+}
+
 
 @app.route('/', methods=['GET', 'POST'])
 def welcome():
@@ -10,68 +103,14 @@ def welcome():
 
 @app.route('/api/v1/menu', methods=['GET'])
 def menu():
-    return jsonify({
-        'Entries': {
-            1: {
-                'Name': 'Sopa Misa',
-                'Description': 'Nuestra mejor sopa'
-            },
-            2: {
-                'Name': 'Sushi de camarón',
-                'Description': 'Nuestro mejor sushi'
-            },
-            3: {
-                'Name': 'Pulpo asado',
-                'Description': 'Nuevo platillo'
-            },
-            4: {
-                'Name': 'Yakimeshi',
-                'Description': 'Con verduras'
-            }
-        },
-        'Main Dish':{
-            11: {
-                'Name': 'Ramen de cerdo ahumado',
-                'Description': 'Sabroso y ahumado'
-            },
-            12: {
-                'Name': 'Ramen vegano picante',
-                'Description': 'Especiado y reconfortante'
-            },
-            13: {
-                'Name': 'Ramen de pollo teriyaki',
-                'Description': 'Dulce y satisfactorio'
-            },
-            14: {
-                'Name': 'Ramen de mariscos',
-                'Description': 'Delicioso y abundante'
-            }
-        },
-        'Beverages': {
-            21: {
-                'Name': 'Café expresso',
-                'Description': 'Intenso y aromático'
-            },
-            22: {
-                'Name': 'Limonada refrescante',
-                'Description': 'Cítrica y revitalizante'
-            },
-            23: {
-                'Name': 'Agua de fresa',
-                'Description': 'Dulce y cremoso'
-            },
-            24: {
-                'Name': 'Té verde frío',
-                'Description': 'Refrescante y saludable'
-            }
-        }
-    })
+    return jsonify(data)
+
+
+@app.route('/api/v1/menu/<category>', methods=['GET'])
+def menu_category(category):
+    return data[category]
 
 
 @app.route('/api/v1/categories', methods=['GET'])
 def categories():
-    return jsonify([
-        'Entries',
-        'Main Dish',
-        'Beverages'
-    ])
+    return jsonify(list(data.keys()))
