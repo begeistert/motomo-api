@@ -10,14 +10,15 @@ class handler(BaseHTTPRequestHandler):
         return
 """
 
-from microdot import Microdot
+from flask import Flask
 
-app = Microdot()
-
-
-@app.route('/')
-def index(request):
-    return 'Hello World!'
+app = Flask(__name__)
 
 
-app.run()
+@app.route('/', methods=['GET', 'POST'])
+def welcome():
+    return "Hello World!"
+
+
+if __name__ == '__main__':
+    app.run()
