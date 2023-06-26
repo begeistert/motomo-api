@@ -8,7 +8,7 @@ def welcome():
     return "Hello World!"
 
 
-@app.route('/api/v1/menu', methods=['GET'])
+@app.route('/api/menu', methods=['GET'])
 def menu():
     return jsonify({
         'Entries': {
@@ -68,7 +68,7 @@ def menu():
     })
 
 
-@app.route('/api/v1/categories', methods=['GET'])
+@app.route('/api/categories', methods=['GET'])
 def categories():
     return jsonify([
         'Entries',
