@@ -10,15 +10,15 @@ class handler(BaseHTTPRequestHandler):
         return
 """
 
-from microdot import Microdot, Response
+from microdot import Microdot
 
 app = Microdot()
-Response.default_content_type = 'text/html'
 
 
-@app.route('/api', methods=['GET', 'POST'])
-def index():
-    return 'Hello world!'
+@app.route('/')
+def index(request):
+    return 'Hello World!'
 
 
-app.run()
+if __name__ == '__main__':
+    app.run()
