@@ -1,9 +1,9 @@
-from flask import Flask, jsonify, Response
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
 
-@app.route('/api', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def welcome():
     return "Hello World!"
 
