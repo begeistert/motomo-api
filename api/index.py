@@ -1,14 +1,14 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, Response
 
 app = Flask(__name__)
 
 
-@app.route('/api/v1', methods=['GET', 'POST'])
+@app.route('api', methods=['GET', 'POST'])
 def welcome():
-    return "Hello World!"
+    return Response("Hello World!", mimetype='text/xml')
 
 
-@app.route('/api/v1/menu', methods=['GET'])
+@app.route('api/v1/menu', methods=['GET'])
 def menu():
     return jsonify({
         'Entries': {
