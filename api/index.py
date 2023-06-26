@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/api', methods=['GET', 'POST'])
 def welcome():
-    return Response("Hello World!", mimetype='text/xml')
+    return "Hello World!"
 
 
 @app.route('/api/v1/menu', methods=['GET'])
