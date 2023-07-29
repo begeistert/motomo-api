@@ -84,7 +84,7 @@ data = {
         },
         {
             'id': 23,
-            'Name': 'Limonada refrescante',
+            'name': 'Limonada refrescante',
             'dsc': 'Cítrica y revitalizante',
             'price': 60.0,
             'img': 0,
@@ -92,7 +92,7 @@ data = {
         },
         {
             'id': 24,
-            'Name': 'Agua de fresa',
+            'name': 'Agua de fresa',
             'dsc': 'Dulce y cremoso',
             'price': 90.0,
             'img': 0,
@@ -100,7 +100,7 @@ data = {
         },
         {
             'id': 25,
-            'Name': 'Té verde frío',
+            'name': 'Té verde frío',
             'dsc': 'Refrescante y saludable',
             'price': 55.0,
             'img': 0,
