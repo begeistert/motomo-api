@@ -4,7 +4,7 @@ import uuid
 app = Flask(__name__)
 
 data = {
-    'Entries': [
+    'Main': [
         {
             'id': 1,
             'name': 'Sopa Misa',
@@ -38,7 +38,7 @@ data = {
             'url': 'https://github-production-user-asset-6210df.s3.amazonaws.com/36460223/256968453-7495bd2e-79ba-48b7-b4f2-bff9ce0fb1d2.jpeg'
         }
     ],
-    'Main': [
+    'Ramen': [
         {
             'id': 11,
             'name': 'Ramen de cerdo ahumado',
