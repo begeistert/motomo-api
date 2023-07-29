@@ -1,4 +1,5 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
+import uuid
 
 app = Flask(__name__)
 
@@ -95,6 +96,8 @@ data = {
     ]
 }
 
+orders = {}
+
 
 @app.route('/', methods=['GET', 'POST'])
 def welcome():
@@ -114,3 +117,25 @@ def menu_category(category):
 @app.route('/api/v1/categories', methods=['GET'])
 def categories():
     return jsonify(list(data.keys()))
+
+
+@app.route('/api/v1/orders', methods=['GET', 'POST'])
+def order():
+    global orders
+
+    if request.method == 'POST':
+        _order = request.get_json()
+        _uuid = str(uuid.uuid4())
+        _order['uuid'] = _uuid
+        orders[_uuid] = _order
+        return jsonify(_order)
+    else:
+        _uuid = request.args.get('uuid')
+        if _uuid is None:
+            return jsonify(list(orders.values()))
+        else:
+            return jsonify(orders[_uuid])
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
