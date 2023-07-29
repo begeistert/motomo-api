@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 import uuid
+import json
 
 app = Flask(__name__)
 
@@ -136,7 +137,7 @@ def order():
     global orders
 
     if request.method == 'POST':
-        _order = request.get_json()
+        _order = json.loads(request.get_json())
         _uuid = str(uuid.uuid4())
         _order['uuid'] = _uuid
         orders[_uuid] = _order
@@ -150,4 +151,4 @@ def order():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
